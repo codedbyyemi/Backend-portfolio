@@ -11,6 +11,13 @@ export default {
         sm: ".1875rem", /* 3px */
       },
       colors: {
+        primary: {
+          DEFAULT: "#775ED0",
+          light: "#9F8CFF",
+          dark: "#5A45A0",
+          50: "#E4DEFF",
+          foreground: "white", // Ensure text on primary is readable
+        },
         // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",
@@ -83,7 +90,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
+        sans: ["Inter", "sans-serif"],
+        heading: ["Poppins", "sans-serif"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
       },
