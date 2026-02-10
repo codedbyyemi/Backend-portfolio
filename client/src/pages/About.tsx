@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/SectionHeader";
+import Image from '../assets/tunde.jpeg';
+
 import {
   User,
   MapPin,
@@ -85,17 +87,24 @@ export default function About() {
                   className="flex-shrink-0"
                 >
                   <div className="relative">
-                    <div className="w-40 h-40 rounded-3xl bg-gradient-to-br from-primary via-cyan-500 to-primary/60 flex items-center justify-center shadow-2xl shadow-primary/30">
-                      <User className="w-16 h-16 text-white" />
+                    <div className="w-40 h-40 rounded-3xl bg-gradient-to-br from-primary via-cyan-500 to-primary/60 flex items-center justify-center shadow-2xl shadow-primary/30 overflow-hidden">
+                      <div>
+                        <img
+                          src={Image}
+                          alt="Tunde"
+                          className="w-full h-full object-cover rounded-3xl"
+                        />
+                      </div>
+                      </div>
+
+                      <motion.div
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-card flex items-center justify-center"
+                      >
+                        <span className="w-3 h-3 bg-white rounded-full" />
+                      </motion.div>
                     </div>
-                    <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-card flex items-center justify-center"
-                    >
-                      <span className="w-3 h-3 bg-white rounded-full" />
-                    </motion.div>
-                  </div>
                 </motion.div>
 
                 <div className="flex-1">
@@ -123,7 +132,7 @@ export default function About() {
                     className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-6"
                   >
                     <a
-                      href="tel:+2349160214824"
+                      href="tel:+2348116358044"
                       className="flex items-center gap-2 hover:text-primary transition-colors"
                       data-testid="link-phone"
                     >

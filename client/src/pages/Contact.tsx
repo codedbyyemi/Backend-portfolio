@@ -62,7 +62,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-white/70 text-sm font-medium">Phone / WhatsApp</p>
-                    <p className="text-lg font-bold" data-testid="text-phone">09160214824</p>
+                    <p className="text-lg font-bold" data-testid="text-phone">+234 811 635 8044
+</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -75,7 +76,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <a 
-                  href="https://wa.me/2349160214824" 
+                  href="https://wa.me/+2348116358044" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 bg-white/10 rounded-2xl backdrop-blur-sm hover:bg-white/20 transition-colors"

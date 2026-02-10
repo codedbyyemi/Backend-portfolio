@@ -84,6 +84,6 @@ migrations/          # Drizzle migration output directory
 ## External Dependencies
 
 - **PostgreSQL** — Database configured via `DATABASE_URL` environment variable. Required for `db:push` schema migrations. Currently optional at runtime since MemStorage is the default.
-- **WhatsApp Integration** — Floating button links to `wa.me/2349160214824` for direct messaging (no API integration, just a link).
+- **WhatsApp Integration** — Floating button links to `wa.me/+2348116358044` for direct messaging (no API integration, just a link).
 - **Google Fonts** — Inter, Poppins, DM Sans, Fira Code, Geist Mono, and Architects Daughter loaded via Google Fonts CDN.
 - **Replit Plugins** — `@replit/vite-plugin-runtime-error-modal`, `@replit/vite-plugin-cartographer`, and `@replit/vite-plugin-dev-banner` are used in development on Replit.

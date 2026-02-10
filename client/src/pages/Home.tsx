@@ -28,36 +28,36 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center">
         {/* Animated Background */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          <motion.div 
+          <motion.div
             style={{ y: y1 }}
-            className="absolute -top-[30%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-primary/8 blur-[150px]" 
+            className="absolute -top-[30%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-primary/8 blur-[150px]"
           />
-          <motion.div 
+          <motion.div
             style={{ y: y2 }}
-            className="absolute -bottom-[20%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-cyan-500/8 blur-[120px]" 
+            className="absolute -bottom-[20%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-cyan-500/8 blur-[120px]"
           />
-          <motion.div 
+          <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/4 right-1/4 w-96 h-96 border border-primary/5 rounded-full" 
+            className="absolute top-1/4 right-1/4 w-96 h-96 border border-primary/5 rounded-full"
           />
-          <motion.div 
+          <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/3 right-1/3 w-64 h-64 border border-cyan-500/5 rounded-full" 
+            className="absolute top-1/3 right-1/3 w-64 h-64 border border-cyan-500/5 rounded-full"
           />
         </div>
 
         <motion.div style={{ opacity }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            
+
             {/* Text Content */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
@@ -69,15 +69,15 @@ export default function Home() {
                 </span>
                 Available for Opportunities
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold leading-tight mb-6"
               >
                 Backend Developer Building{" "}
-                <motion.span 
+                <motion.span
                   initial={{ backgroundPosition: "0% 50%" }}
                   animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                   transition={{ duration: 5, repeat: Infinity }}
@@ -87,8 +87,8 @@ export default function Home() {
                 </motion.span>{" "}
                 Systems
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -96,8 +96,8 @@ export default function Home() {
               >
                 I design and build robust APIs, databases, and server-side systems that power modern applications. Clean architecture, maximum reliability.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
@@ -108,38 +108,39 @@ export default function Home() {
                     View My Projects <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <a href="https://wa.me/2349160214824" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/+2348116358044"
+                  target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full px-8 py-6 text-base border-primary/30 hover:bg-primary/5 transition-all hover:-translate-y-1">
                     Chat on WhatsApp <MessageCircle className="ml-2 h-5 w-5 text-green-500" />
                   </Button>
                 </a>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9 }}
                 className="flex items-center gap-6 text-muted-foreground"
               >
-                <motion.a 
+                <motion.a
                   whileHover={{ scale: 1.2, color: "hsl(var(--primary))" }}
-                  href="#" 
+                  href="#"
                   className="transition-colors"
                   data-testid="link-github"
                 >
                   <Github className="w-6 h-6" />
                 </motion.a>
-                <motion.a 
+                <motion.a
                   whileHover={{ scale: 1.2, color: "hsl(var(--primary))" }}
-                  href="#" 
+                  href="#"
                   className="transition-colors"
                   data-testid="link-linkedin"
                 >
                   <Linkedin className="w-6 h-6" />
                 </motion.a>
-                <motion.a 
+                <motion.a
                   whileHover={{ scale: 1.2, color: "hsl(var(--primary))" }}
-                  href="mailto:adefisanbabatunde@email.com" 
+                  href="mailto:adefisanbabatunde@email.com"
                   className="transition-colors"
                   data-testid="link-email"
                 >
@@ -149,13 +150,13 @@ export default function Home() {
             </motion.div>
 
             {/* Hero Visual - Terminal/Code Block */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 50 }}
               className="relative hidden lg:flex items-center justify-center"
             >
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="relative z-10 w-full max-w-md"
               >
@@ -166,8 +167,8 @@ export default function Home() {
                     <div className="w-3 h-3 rounded-full bg-green-500" />
                     <span className="ml-4 text-xs text-muted-foreground font-mono">server.ts</span>
                   </div>
-                  
-                  <motion.div 
+
+                  <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1, duration: 1 }}
@@ -186,9 +187,9 @@ export default function Home() {
                   </motion.div>
                 </div>
               </motion.div>
-              
+
               {/* Floating Elements */}
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-6 -right-6 z-20 bg-background/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-border"
@@ -203,8 +204,8 @@ export default function Home() {
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="absolute -bottom-6 -left-6 z-20 bg-background/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-border"
@@ -220,7 +221,7 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                 className="absolute top-1/2 -right-12 z-20 bg-background/90 backdrop-blur-md p-3 rounded-xl shadow-xl border border-border"
