@@ -16,7 +16,7 @@ import Experience from "@/pages/Experience";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
-// Helper component for Scroll Restoration
+// Scroll restoration on route change
 function ScrollRestoration() {
   const [pathname] = useLocation();
 
@@ -32,6 +32,7 @@ function Router() {
     <div className="flex flex-col min-h-screen">
       <ScrollRestoration />
       <Navbar />
+
       <main className="flex-grow">
         <Switch>
           <Route path="/" component={Home} />
@@ -43,13 +44,14 @@ function Router() {
           <Route component={NotFound} />
         </Switch>
       </main>
+
       <Footer />
       <FloatingWhatsApp />
     </div>
   );
 }
 
-function App() {
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -59,5 +61,3 @@ function App() {
     </QueryClientProvider>
   );
 }
-
-export default App;
