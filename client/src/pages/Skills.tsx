@@ -1,68 +1,115 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/SectionHeader";
-import { CheckCircle2 } from "lucide-react";
+import { Server, Database, Shield, Wrench } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Frontend Technologies",
-    skills: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5 & CSS3"]
+    title: "Backend Technologies",
+    icon: Server,
+    skills: ["Node.js", "Express.js / NestJS", "RESTful API Design", "JWT Authentication", "TypeScript"]
   },
   {
-    title: "UI & UX",
-    skills: ["Tailwind CSS", "Framer Motion", "Responsive Design", "CSS Animations", "Accessibility"]
+    title: "Database & Data Handling",
+    icon: Database,
+    skills: ["MongoDB / PostgreSQL", "Prisma / Mongoose / Sequelize", "Database Indexing & Optimization", "Data Modeling & Relationships", "Redis Caching"]
   },
   {
-    title: "Tools & Workflow",
-    skills: ["Git & GitHub", "VS Code", "Vite", "NPM / Yarn / Bun", "Figma"]
+    title: "DevOps & Tools",
+    icon: Wrench,
+    skills: ["Git & GitHub", "Docker (Basic-Intermediate)", "Postman / Insomnia", "Swagger API Documentation", "Linux Server Basics"]
   },
   {
-    title: "Performance",
-    skills: ["SEO Optimization", "Core Web Vitals", "Lazy Loading", "Code Splitting", "Performance Monitoring"]
+    title: "Performance & Security",
+    icon: Shield,
+    skills: ["API Rate Limiting", "Input Validation (Zod / Joi)", "Error Handling & Logging", "Secure Password Hashing", "Caching Strategies"]
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1, y: 0, scale: 1,
+    transition: { type: "spring", stiffness: 80, damping: 15 }
+  }
+};
+
 export default function Skills() {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-gradient-to-b from-background to-secondary/20">
+    <div className="min-h-screen pt-32 pb-20 bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader 
-          title="Technical Skills" 
-          subtitle="A comprehensive toolkit for building modern web applications." 
-        />
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <SectionHeader 
+            title="Technical Skills" 
+            subtitle="A comprehensive toolkit for building robust backend systems and APIs." 
+          />
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 gap-8"
+        >
           {skillCategories.map((category, idx) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 group"
+              variants={cardVariants}
+              whileHover={{ y: -8, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
+              className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:border-primary/40 transition-all duration-300 group"
+              data-testid={`skill-card-${idx}`}
             >
-              <h3 className="text-2xl font-bold font-heading mb-6 text-foreground group-hover:text-primary transition-colors">
-                {category.title}
-              </h3>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-cyan-500/10 flex items-center justify-center text-primary group-hover:from-primary group-hover:to-cyan-500 group-hover:text-white transition-all duration-300">
+                  <category.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-foreground group-hover:text-primary transition-colors">
+                  {category.title}
+                </h3>
+              </div>
               
               <div className="space-y-4">
                 {category.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary/70 flex-shrink-0" />
-                    <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
+                  <motion.div 
+                    key={sIdx} 
+                    className="flex items-center gap-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 * sIdx }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.div 
+                      className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-cyan-500 flex-shrink-0"
+                      whileHover={{ scale: 1.5 }}
+                    />
+                    <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                       <motion.div 
                         initial={{ width: 0 }}
-                        whileInView={{ width: `${Math.floor(Math.random() * (98 - 85) + 85)}%` }} // Randomized realistic skill levels
+                        whileInView={{ width: `${85 + (sIdx * 3)}%` }}
                         transition={{ delay: 0.3 + (sIdx * 0.1), duration: 1, ease: "easeOut" }}
-                        className="bg-gradient-to-r from-primary to-primary/60 h-full rounded-full"
+                        viewport={{ once: true }}
+                        className="bg-gradient-to-r from-primary to-cyan-500/70 h-full rounded-full"
                       />
                     </div>
-                    <span className="font-medium text-sm min-w-[100px] text-right">{skill}</span>
-                  </div>
+                    <span className="font-medium text-sm min-w-[180px] text-right text-muted-foreground">{skill}</span>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

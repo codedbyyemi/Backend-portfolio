@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
@@ -24,12 +24,12 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer group">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-300">
-                <Code2 className="w-6 h-6" />
+            <div className="flex items-center gap-2 cursor-pointer group" data-testid="link-logo">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-300">
+                <Terminal className="w-6 h-6" />
               </div>
               <span className="font-heading font-bold text-xl tracking-tight text-foreground group-hover:text-primary transition-colors">
-                OBATECH
+                AB<span className="text-primary">.</span>dev
               </span>
             </div>
           </Link>
@@ -46,6 +46,7 @@ export function Navbar() {
                       : "text-muted-foreground hover:text-foreground"
                     }
                   `}
+                  data-testid={`link-nav-${item.name.toLowerCase()}`}
                 >
                   {item.name}
                   {location === item.href && (
@@ -70,6 +71,7 @@ export function Navbar() {
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground"
+              data-testid="button-mobile-menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -98,6 +100,7 @@ export function Navbar() {
                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
                       }
                     `}
+                    data-testid={`link-mobile-nav-${item.name.toLowerCase()}`}
                   >
                     {item.name}
                   </div>

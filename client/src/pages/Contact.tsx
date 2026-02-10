@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, MapPin, Send, MessageCircle } from "lucide-react";
 
 export default function Contact() {
   const mutation = useCreateMessage();
@@ -33,10 +33,16 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader 
-          title="Get In Touch" 
-          subtitle="Have a project in mind or want to say hi? I'd love to hear from you." 
-        />
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <SectionHeader 
+            title="Get In Touch" 
+            subtitle="Have a project in mind or need a backend developer? Let's talk." 
+          />
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           
@@ -47,7 +53,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="glass-card p-8 rounded-3xl bg-gradient-to-br from-primary to-purple-600 text-white border-none">
+            <div className="glass-card p-8 rounded-3xl bg-gradient-to-br from-primary to-cyan-600 text-white border-none">
               <h3 className="text-2xl font-bold font-heading mb-6">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
@@ -56,33 +62,39 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-white/70 text-sm font-medium">Phone / WhatsApp</p>
-                    <p className="text-lg font-bold">09160214824</p>
+                    <p className="text-lg font-bold" data-testid="text-phone">09160214824</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                   <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-white/70 text-sm font-medium">Email</p>
-                    <p className="text-lg font-bold">obatech@example.com</p>
-                  </div>
-                </div>
-                 <div className="flex items-center gap-4">
                    <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
                     <p className="text-white/70 text-sm font-medium">Location</p>
-                    <p className="text-lg font-bold">Lagos, Nigeria</p>
+                    <p className="text-lg font-bold" data-testid="text-location">Nigeria</p>
                   </div>
                 </div>
+                <a 
+                  href="https://wa.me/2349160214824" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 bg-white/10 rounded-2xl backdrop-blur-sm hover:bg-white/20 transition-colors"
+                  data-testid="link-whatsapp-contact"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center">
+                    <MessageCircle className="w-6 h-6 text-white fill-current" />
+                  </div>
+                  <div>
+                    <p className="text-white/70 text-sm font-medium">Quick Chat</p>
+                    <p className="text-lg font-bold">Message on WhatsApp</p>
+                  </div>
+                </a>
               </div>
             </div>
             
             <div className="p-8 border border-dashed border-border rounded-3xl text-center">
-              <p className="text-muted-foreground mb-4">"Great web design without functionality is like a sports car with no engine."</p>
-              <p className="font-bold text-primary">– Paul Cookson</p>
+              <p className="text-muted-foreground mb-4">"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</p>
+              <p className="font-bold text-primary">-- Martin Fowler</p>
             </div>
           </motion.div>
 
@@ -104,7 +116,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Name" className="h-12 rounded-xl" {...field} />
+                        <Input placeholder="Your Name" className="h-12 rounded-xl" {...field} data-testid="input-name" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -118,7 +130,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="your.email@example.com" className="h-12 rounded-xl" {...field} />
+                        <Input placeholder="your.email@example.com" className="h-12 rounded-xl" {...field} data-testid="input-email" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -136,6 +148,7 @@ export default function Contact() {
                           placeholder="Tell me about your project..." 
                           className="min-h-[150px] rounded-xl resize-none" 
                           {...field} 
+                          data-testid="input-message"
                         />
                       </FormControl>
                       <FormMessage />
@@ -147,6 +160,7 @@ export default function Contact() {
                   type="submit" 
                   className="w-full h-12 rounded-xl font-bold text-base shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
                   disabled={mutation.isPending}
+                  data-testid="button-submit"
                 >
                   {mutation.isPending ? "Sending..." : "Send Message"} 
                   {!mutation.isPending && <Send className="ml-2 w-4 h-4" />}
