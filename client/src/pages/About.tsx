@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/SectionHeader";
-import Image from '../assets/tunde.jpeg';
+import Image from '../assets/images/tunde.jpeg';
 
 import {
   User,
